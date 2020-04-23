@@ -44,11 +44,20 @@ Below is a list of available actions from the Web API:
 
 ---
 ### Retrieve Incidents:
-> Retrieves the specified CSM account.
+> Retrieves existing incident records.
 
 Input Parameter | Type | Required | Description
 ------------  | ------------- | ------------- | -------------
-id|Text|Y|Unique identifier (sys_id) of the account to retrieve; located in the Customer [customer_account] table.
+name-value pairs|Text|N|Name-value pairs to use to filter the result set. This parameter is mutually exclusive with sysparm_query.
+sysparm_display_value|Text|N|Data retrieval operation for reference and choice fields.
+sysparm_exclude_reference_link|Flag|N|	Flag that indicates whether to exclude Table API links for reference fields.
+sysparm_fields|Text|N|Comma-separated list of field names to return in the response.
+sysparm_limit|Text|N|Maximum number of records to return. Unusually large sysparm_limit values can impact system performance. For requests that exceed this number of records, use the sysparm_offset parameter to paginate record retrieval.
+sysparm_offset|Text|N|	Starting record index for which to begin retrieving records. Use this value to paginate record retrieval. 
+sysparm_query|Text|N|Encoded query used to filter the result set.
+sysparm_query_no_domain|Flag||N|Flag that indicates whether to restrict the record search to only the domains for which the logged in user is configured.
+sysparm_suppress_pagination_header|Flag||N|Flag that indicates whether to remove the Link header from the response. 
+sysparm_view|Text|N|UI view for which to render the data. Determines the fields returned in the response.
 &nbsp;
 
 Output Parameter | Type | Description
