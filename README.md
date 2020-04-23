@@ -69,13 +69,11 @@ Response Headers|Collection|Collection of headers data returned in response.
 
 ---
 ### Retrieve Incident By SysId:
-> Retrieves a specified set of CSM accounts.
+> Retrieve a specific incident.
 
 Input Parameter | Type | Required | Description
 ------------  | ------------- | ------------- | -------------
-sysparm_limit|Text|N|Maximum number of records to return. Unusually large sysparm_limit values can impact system performance. For requests that exceed this number of records, use the sysparm_offset parameter to paginate record retrieval. Default: 10
-sysparm_offset|Text|N|Starting record index for which to begin retrieving records. Use this value to paginate record retrieval. This functionality enables the retrieval of all records, regardless of the number of records, in small manageable chunks. 
-sysparm_query|Text|N|Encoded query to use to filter the result set.
+sys_id|Text|Y|Unique identifier of the incidet to retrieve.
 &nbsp;
 
 Output Parameter | Type | Description
@@ -87,7 +85,7 @@ Response Headers|Collection|Collection of headers data returned in response.
 
 ---
 ### Create Incident:
-> Creates a new CSM case.
+> Creates a new incident record with the passed-in parameters.
 
 Input Parameter | Type | Required | Description
 ------------  | ------------- | ------------- | -------------
@@ -103,11 +101,11 @@ Response Headers|Collection|Collection of headers data returned in response.
 
 ---
 ### Update Incident By SysId:
-> Updates the specified existing CSM case with the passed-in parameters.
+> Updates the specified incident record with the passed-in parameters.
 
 Input Parameter | Type | Required | Description
 ------------  | ------------- | ------------- | -------------
-id|Text|Y|Unique identifier (sys_id) of the account to retrieve; located in the Customer [customer_account] table.
+sys_id|Text|Y|Unique identifier of the incidet to update.
 body|Text|N|Optional parameters (see Service Now API doc).
 &nbsp;
 
