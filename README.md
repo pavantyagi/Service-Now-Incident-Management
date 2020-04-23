@@ -29,7 +29,9 @@ To use this API, users must have one of the following roles: admin, web_service_
 ## 2. Getting Started:
 
 - Review the ServiceNow API Documentation:
-  - Go to https://developer.servicenow.com/app.do#!/home > Choose API from top ribbon, select REST in dropdown, scroll down to find the Table API information. The Table API is used to manage incidents. For further reading, please see: https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/inbound-rest/concept/use-REST-API-Explorer.html#t_GetStartedRetrieveExisting
+- Go to https://developer.servicenow.com/app.do#!/home > Choose API from top ribbon, select REST in dropdown, scroll down to find the Table API information. The Table API is used to manage incidents. 
+  
+For further reading, please see: https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/inbound-rest/concept/use-REST-API-Explorer.html#t_GetStartedRetrieveExisting
   
 
 ## 3. Using the Skill
