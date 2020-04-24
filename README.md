@@ -6,7 +6,7 @@
 ## 1. ServiceNow Incident Management API Capability
 
 <!-- Asset Pitch -->
-A Blue Prism skill that implements the ServiceNow Incident Management REST API interface.
+A Blue Prism skill that implements ServiceNow Incident Management via the ServiceNow Table API REST interface.
 
 This skill enables you to retrieve, create, update, and delete incident records.
 
