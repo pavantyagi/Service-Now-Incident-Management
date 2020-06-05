@@ -60,6 +60,7 @@ sysparm_query|Text|N|Encoded query used to filter the result set.
 sysparm_query_no_domain|Flag|N|Flag that indicates whether to restrict the record search to only the domains for which the logged in user is configured.
 sysparm_suppress_pagination_header|Flag|N|Flag that indicates whether to remove the Link header from the response. 
 sysparm_view|Text|N|UI view for which to render the data. Determines the fields returned in the response.
+ServiceNow Instance|Text|Y|The URL of the ServiceNow instance.
 &nbsp;
 
 Output Parameter | Type | Description
@@ -67,6 +68,7 @@ Output Parameter | Type | Description
 Response_Content|Text|A JSON value containing response information related to the request.
 HTTP Status Code|Text|HTTP Status code returned in response.
 Response Headers|Collection|Collection of headers data returned in response.
+Request Data|Text|URL that is sent to ServiceNow.
 &nbsp;
 
 ---
@@ -76,6 +78,7 @@ Response Headers|Collection|Collection of headers data returned in response.
 Input Parameter | Type | Required | Description
 ------------  | ------------- | ------------- | -------------
 sys_id|Text|Y|Unique identifier of the incidet to retrieve.
+ServiceNow Instance|Text|Y|The URL of the ServiceNow instance.
 &nbsp;
 
 Output Parameter | Type | Description
@@ -83,6 +86,7 @@ Output Parameter | Type | Description
 Response_Content|Text|A JSON value containing response information related to the request.
 HTTP Status Code|Text|HTTP Status code returned in response.
 Response Headers|Collection|Collection of headers data returned in response.
+Request Data|Text|URL that is sent to ServiceNow.
 &nbsp;
 
 ---
@@ -92,6 +96,7 @@ Response Headers|Collection|Collection of headers data returned in response.
 Input Parameter | Type | Required | Description
 ------------  | ------------- | ------------- | -------------
 body|Text|N|Optional parameters (see Service Now API doc).
+ServiceNow Instance|Text|Y|The URL of the ServiceNow instance.
 &nbsp;
 
 Output Parameter | Type | Description
@@ -99,6 +104,7 @@ Output Parameter | Type | Description
 Response_Content|Text|A JSON value containing response information related to the request.
 HTTP Status Code|Text|HTTP Status code returned in response.
 Response Headers|Collection|Collection of headers data returned in response.
+Request Data|Text|URL that is sent to ServiceNow.
 &nbsp;
 
 ---
@@ -109,6 +115,7 @@ Input Parameter | Type | Required | Description
 ------------  | ------------- | ------------- | -------------
 sys_id|Text|Y|Unique identifier of the incidet to update.
 body|Text|N|Optional parameters (see Service Now API doc).
+ServiceNow Instance|Text|Y|The URL of the ServiceNow instance.
 &nbsp;
 
 Output Parameter | Type | Description
@@ -116,6 +123,26 @@ Output Parameter | Type | Description
 Response_Content|Text|A JSON value containing response information related to the request.
 HTTP Status Code|Text|HTTP Status code returned in response.
 Response Headers|Collection|Collection of headers data returned in response.
+Request Data|Text|URL that is sent to ServiceNow.
+&nbsp;
+
+---
+
+### Delete Incident By SysId:
+> Deletes the specified incident record with the passed-in parameters.
+
+Input Parameter | Type | Required | Description
+------------  | ------------- | ------------- | -------------
+sys_id|Text|Y|Unique identifier of the incidet to update.
+ServiceNow Instance|Text|Y|The URL of the ServiceNow instance.
+&nbsp;
+
+Output Parameter | Type | Description
+------------  | ------------- | -------------
+Response_Content|Text|A JSON value containing response information related to the request.
+HTTP Status Code|Text|HTTP Status code returned in response.
+Response Headers|Collection|Collection of headers data returned in response.
+Request Data|Text|URL that is sent to ServiceNow.
 &nbsp;
 
 ---
