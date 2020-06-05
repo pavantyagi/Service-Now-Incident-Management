@@ -38,7 +38,7 @@ To use this API, users must have one of the following roles: admin, web_service_
 > To use the ServiceNow Incident Management skill in Blue Prism:
 - Download the [skill](#using-the-skill) directly.
 - Import the skill file into Blue Prism.
-- Open the Web API Service (in the System tab in the Blue Prism IDE) associated with the skill and copy your instance name into the space provided *[ServiceNow Instance]* in the field for Base URL. A better solution would be to create a data item in the process/object containing the ServiceNow instance and pass it into the SKill.
+- Open the Web API Service (in the System tab in the Blue Prism IDE) associated with the skill. You'll see the URL with the data item *[ServiceNow Instance]* in the field for Base URL. This parameter will be exposed as a data item when you import the skill into an object or prcoess. Populate the data item with your instance URL. It will be something like "xxxXXXXX.service-now.com" where the xxxXXXXX will be the specific name for your ServiceNow instance.
 
 Below is a list of available actions from the Web API:
 
