@@ -1,191 +1,191 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
-    <bpr:name>ServiceNow Incident Management API v1.1</bpr:name>
-    <bpr:release-notes>Updated the Base URL to include [ServiceNow Instance] and corrected bug in Retrieve Incidents parameters.</bpr:release-notes>
-    <bpr:created>2020-06-05 18:09:58Z</bpr:created>
-    <bpr:package-id>-1</bpr:package-id>
-    <bpr:package-name>&lt;Adhoc Package&gt;</bpr:package-name>
-    <bpr:user-created-by>admin</bpr:user-created-by>
-    <bpr:contents count="2">
-        <credential id="c48097b5-ec8a-43ae-abd4-aff503827866" name="ServiceNow Credential" xmlns="http://www.blueprism.co.uk/product/credential">
-            <description>Access to ServiceNow</description>
-            <credentialType>BasicAuthentication</credentialType>
-            <members />
-        </credential>
-        <webapiservice id="d58939ec-03bd-46ac-8175-4cadced499ae" name="ServiceNow Incident Management API" enabled="true" xmlns="http://www.blueprism.co.uk/product/webapiservice">
-            <configuration baseurl="https://[ServiceNow Instance]/api" xmlns="">
-                <actions>
-                    <action id="223" name="Retrieve Incidents" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
-                        <description><![CDATA[Retrieves multiple incident records.]]></description>
-                        <request httpmethod="GET" urlpath="/now/table/incident?[sysparm_query]&amp;[name-value pairs]&amp;[sysparm_display_value]&amp;[sysparm_exclude_reference_link]&amp;[sysparm_fields]&amp;[sysparm_limit]&amp;[sysparm_offset]&amp;[sysparm_query_no_domain]&amp;[sysparm_suppress_pagination_header]&amp;[sysparm_view]">
-                            <headers>
-                                <httpheader name="Content-Type" value="application/json" />
-                            </headers>
-                            <bodycontent type="0"></bodycontent>
-                        </request>
-                        <parameters>
-                            <actionparameter name="name-value pairs" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Name-value pairs to use to filter the result set. This parameter is mutually exclusive with sysparm_query.]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_display_value" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Data retrieval operation for reference and choice fields.]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_exclude_reference_link" expose="true" datatype="8">
-                                <initialvalue><![CDATA[False]]></initialvalue>
-                                <description><![CDATA[	Flag that indicates whether to exclude Table API links for reference fields.]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_fields" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Comma-separated list of field names to return in the response.]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_limit" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Maximum number of records to return. Unusually large sysparm_limit values can impact system performance. For requests that exceed this number of records, use the sysparm_offset parameter to paginate record retrieval.]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_offset" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[	Starting record index for which to begin retrieving records. Use this value to paginate record retrieval. ]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_query" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Encoded query used to filter the result set.]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_query_no_domain" expose="true" datatype="8">
-                                <initialvalue><![CDATA[False]]></initialvalue>
-                                <description><![CDATA[Flag that indicates whether to restrict the record search to only the domains for which the logged in user is configured.]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_suppress_pagination_header" expose="true" datatype="8">
-                                <initialvalue><![CDATA[False]]></initialvalue>
-                                <description><![CDATA[Flag that indicates whether to remove the Link header from the response. ]]></description>
-                            </actionparameter>
-                            <actionparameter name="sysparm_view" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[UI view for which to render the data. Determines the fields returned in the response.]]></description>
-                            </actionparameter>
-                        </parameters>
-                        <outputparameters>
-                            <parameters />
-                            <code><![CDATA[]]></code>
-                        </outputparameters>
-                    </action>
-                    <action id="224" name="Retrieve Incident By SysId" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
-                        <description><![CDATA[Retrieve a specific incident]]></description>
-                        <request httpmethod="GET" urlpath="/now/table/incident/[sys_id]">
-                            <headers>
-                                <httpheader name="Content-Type" value="application/json" />
-                            </headers>
-                            <bodycontent type="0"></bodycontent>
-                        </request>
-                        <parameters>
-                            <actionparameter name="sys_id" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Unique identifier of the incidet to retrieve.]]></description>
-                            </actionparameter>
-                        </parameters>
-                        <outputparameters>
-                            <parameters />
-                            <code><![CDATA[]]></code>
-                        </outputparameters>
-                    </action>
-                    <action id="225" name="Create Incident" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
-                        <description><![CDATA[Create an incident]]></description>
-                        <request httpmethod="POST" urlpath="/now/table/incident?[body]">
-                            <headers>
-                                <httpheader name="Content-Type" value="application/json" />
-                            </headers>
-                            <bodycontent type="1">
-                                <template><![CDATA[[body]]]></template>
-                            </bodycontent>
-                        </request>
-                        <parameters>
-                            <actionparameter name="body" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[UI view for which to render the data. Determines the fields returned in the response.]]></description>
-                            </actionparameter>
-                        </parameters>
-                        <outputparameters>
-                            <parameters />
-                            <code><![CDATA[]]></code>
-                        </outputparameters>
-                    </action>
-                    <action id="226" name="Update Incident By SysId" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
-                        <description><![CDATA[Update the incident record]]></description>
-                        <request httpmethod="PUT" urlpath="/now/table/incident/[sys_id]?[body]">
-                            <headers>
-                                <httpheader name="Content-Type" value="application/json" />
-                            </headers>
-                            <bodycontent type="1">
-                                <template><![CDATA[[body]]]></template>
-                            </bodycontent>
-                        </request>
-                        <parameters>
-                            <actionparameter name="sys_id" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Unique identifier of the incidet to retrieve.]]></description>
-                            </actionparameter>
-                            <actionparameter name="body" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[Request body]]></description>
-                            </actionparameter>
-                        </parameters>
-                        <outputparameters>
-                            <parameters />
-                            <code><![CDATA[]]></code>
-                        </outputparameters>
-                    </action>
-                    <action id="227" name="Delete Incident By SysId" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
-                        <description><![CDATA[Delete an incident using sysId]]></description>
-                        <request httpmethod="DELETE" urlpath="/now/table/incident/[sys_id]">
-                            <headers>
-                                <httpheader name="Content-Type" value="application/json" />
-                            </headers>
-                            <bodycontent type="0"></bodycontent>
-                        </request>
-                        <parameters>
-                            <actionparameter name="sys_id" expose="true" datatype="64">
-                                <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[System Id]]></description>
-                            </actionparameter>
-                        </parameters>
-                        <outputparameters>
-                            <parameters />
-                            <code><![CDATA[]]></code>
-                        </outputparameters>
-                    </action>
-                </actions>
-                <commonparameters>
-                    <actionparameter name="ServiceNow Instance" expose="true" datatype="64">
-                        <initialvalue><![CDATA[]]></initialvalue>
-                        <description><![CDATA[The name of the ServiceNow instance being used]]></description>
-                    </actionparameter>
-                </commonparameters>
-                <commonheaders />
-                <commonauthentications>
-                    <authentication type="1" preemptive="false">
-                        <credential credentialname="ServiceNow Credential" exposetoprocess="false" inputparametername="" />
-                    </authentication>
-                </commonauthentications>
-                <commoncode>
-                    <codeproperties code="" language="visualbasic">
-                        <namespaces>
-                            <namespace>System</namespace>
-                            <namespace>System.Drawing</namespace>
-                            <namespace>System.Data</namespace>
-                        </namespaces>
-                        <references>
-                            <reference>System.dll</reference>
-                            <reference>System.Data.dll</reference>
-                            <reference>System.Xml.dll</reference>
-                            <reference>System.Drawing.dll</reference>
-                        </references>
-                    </codeproperties>
-                </commoncode>
-                <configurationsettings>
-                    <configurationsettings requesttimeout="10" authserverrequesttimeout="10" />
-                </configurationsettings>
-            </configuration>
-        </webapiservice>
-    </bpr:contents>
+  <bpr:name>ServiceNow Incident Management API v1.1</bpr:name>
+  <bpr:release-notes>Updated the Base URL to include [ServiceNow Instance] and corrected bug in Retrieve Incidents parameters.</bpr:release-notes>
+  <bpr:created>2020-06-05 18:09:58Z</bpr:created>
+  <bpr:package-id>-1</bpr:package-id>
+  <bpr:package-name>&lt;Adhoc Package&gt;</bpr:package-name>
+  <bpr:user-created-by>admin</bpr:user-created-by>
+  <bpr:contents count="2">
+    <credential id="c48097b5-ec8a-43ae-abd4-aff503827866" name="ServiceNow Credential" xmlns="http://www.blueprism.co.uk/product/credential">
+      <description>Access to ServiceNow</description>
+      <credentialType>BasicAuthentication</credentialType>
+      <members />
+    </credential>
+    <webapiservice id="d58939ec-03bd-46ac-8175-4cadced499ae" name="ServiceNow Incident Management API" enabled="true" xmlns="http://www.blueprism.co.uk/product/webapiservice">
+      <configuration baseurl="https://[ServiceNow Instance]/api" xmlns="">
+        <actions>
+          <action id="223" name="Retrieve Incidents" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
+            <description><![CDATA[Retrieves multiple incident records.]]></description>
+            <request httpmethod="GET" urlpath="/now/table/incident?[sysparm_query]&amp;[name-value pairs]&amp;[sysparm_display_value]&amp;[sysparm_exclude_reference_link]&amp;[sysparm_fields]&amp;[sysparm_limit]&amp;[sysparm_offset]&amp;[sysparm_query_no_domain]&amp;[sysparm_suppress_pagination_header]&amp;[sysparm_view]">
+              <headers>
+                <httpheader name="Content-Type" value="application/json" />
+              </headers>
+              <bodycontent type="0"></bodycontent>
+            </request>
+            <parameters>
+              <actionparameter name="name-value pairs" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Name-value pairs to use to filter the result set. This parameter is mutually exclusive with sysparm_query.]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_display_value" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Data retrieval operation for reference and choice fields.]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_exclude_reference_link" expose="true" datatype="8">
+                <initialvalue><![CDATA[False]]></initialvalue>
+                <description><![CDATA[	Flag that indicates whether to exclude Table API links for reference fields.]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_fields" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Comma-separated list of field names to return in the response.]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_limit" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Maximum number of records to return. Unusually large sysparm_limit values can impact system performance. For requests that exceed this number of records, use the sysparm_offset parameter to paginate record retrieval.]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_offset" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[	Starting record index for which to begin retrieving records. Use this value to paginate record retrieval. ]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_query" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Encoded query used to filter the result set.]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_query_no_domain" expose="true" datatype="8">
+                <initialvalue><![CDATA[False]]></initialvalue>
+                <description><![CDATA[Flag that indicates whether to restrict the record search to only the domains for which the logged in user is configured.]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_suppress_pagination_header" expose="true" datatype="8">
+                <initialvalue><![CDATA[False]]></initialvalue>
+                <description><![CDATA[Flag that indicates whether to remove the Link header from the response. ]]></description>
+              </actionparameter>
+              <actionparameter name="sysparm_view" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[UI view for which to render the data. Determines the fields returned in the response.]]></description>
+              </actionparameter>
+            </parameters>
+            <outputparameters>
+              <parameters />
+              <code><![CDATA[]]></code>
+            </outputparameters>
+          </action>
+          <action id="224" name="Retrieve Incident By SysId" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
+            <description><![CDATA[Retrieve a specific incident]]></description>
+            <request httpmethod="GET" urlpath="/now/table/incident/[sys_id]">
+              <headers>
+                <httpheader name="Content-Type" value="application/json" />
+              </headers>
+              <bodycontent type="0"></bodycontent>
+            </request>
+            <parameters>
+              <actionparameter name="sys_id" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Unique identifier of the incidet to retrieve.]]></description>
+              </actionparameter>
+            </parameters>
+            <outputparameters>
+              <parameters />
+              <code><![CDATA[]]></code>
+            </outputparameters>
+          </action>
+          <action id="225" name="Create Incident" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
+            <description><![CDATA[Create an incident]]></description>
+            <request httpmethod="POST" urlpath="/now/table/incident?[body]">
+              <headers>
+                <httpheader name="Content-Type" value="application/json" />
+              </headers>
+              <bodycontent type="1">
+                <template><![CDATA[[body]]]></template>
+              </bodycontent>
+            </request>
+            <parameters>
+              <actionparameter name="body" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[UI view for which to render the data. Determines the fields returned in the response.]]></description>
+              </actionparameter>
+            </parameters>
+            <outputparameters>
+              <parameters />
+              <code><![CDATA[]]></code>
+            </outputparameters>
+          </action>
+          <action id="226" name="Update Incident By SysId" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
+            <description><![CDATA[Update the incident record]]></description>
+            <request httpmethod="PUT" urlpath="/now/table/incident/[sys_id]?[body]">
+              <headers>
+                <httpheader name="Content-Type" value="application/json" />
+              </headers>
+              <bodycontent type="1">
+                <template><![CDATA[[body]]]></template>
+              </bodycontent>
+            </request>
+            <parameters>
+              <actionparameter name="sys_id" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Unique identifier of the incidet to retrieve.]]></description>
+              </actionparameter>
+              <actionparameter name="body" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[Request body]]></description>
+              </actionparameter>
+            </parameters>
+            <outputparameters>
+              <parameters />
+              <code><![CDATA[]]></code>
+            </outputparameters>
+          </action>
+          <action id="227" name="Delete Incident By SysId" enabled="true" enableRequestOutputParameter="true" disableSendingOfRequest="false">
+            <description><![CDATA[Delete an incident using sysId]]></description>
+            <request httpmethod="DELETE" urlpath="/now/table/incident/[sys_id]">
+              <headers>
+                <httpheader name="Content-Type" value="application/json" />
+              </headers>
+              <bodycontent type="0"></bodycontent>
+            </request>
+            <parameters>
+              <actionparameter name="sys_id" expose="true" datatype="64">
+                <initialvalue><![CDATA[]]></initialvalue>
+                <description><![CDATA[System Id]]></description>
+              </actionparameter>
+            </parameters>
+            <outputparameters>
+              <parameters />
+              <code><![CDATA[]]></code>
+            </outputparameters>
+          </action>
+        </actions>
+        <commonparameters>
+          <actionparameter name="ServiceNow Instance" expose="true" datatype="64">
+            <initialvalue><![CDATA[]]></initialvalue>
+            <description><![CDATA[The name of the ServiceNow instance being used]]></description>
+          </actionparameter>
+        </commonparameters>
+        <commonheaders />
+        <commonauthentications>
+          <authentication type="1" preemptive="false">
+            <credential credentialname="ServiceNow Credential" exposetoprocess="false" inputparametername="" />
+          </authentication>
+        </commonauthentications>
+        <commoncode>
+          <codeproperties code="&#xD;&#xA;' 'The MIT License'&#xD;&#xA;&#xD;&#xA;' © 2020 Blue Prism Limited&#xD;&#xA;&#xD;&#xA;' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#xD;&#xA;&#xD;&#xA;' The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#xD;&#xA;&#xD;&#xA;' THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE&#xD;&#xA;&#xD;&#xA;" language="visualbasic">
+            <namespaces>
+              <namespace>System</namespace>
+              <namespace>System.Drawing</namespace>
+              <namespace>System.Data</namespace>
+            </namespaces>
+            <references>
+              <reference>System.dll</reference>
+              <reference>System.Data.dll</reference>
+              <reference>System.Xml.dll</reference>
+              <reference>System.Drawing.dll</reference>
+            </references>
+          </codeproperties>
+        </commoncode>
+        <configurationsettings>
+          <configurationsettings requesttimeout="10" authserverrequesttimeout="10" />
+        </configurationsettings>
+      </configuration>
+    </webapiservice>
+  </bpr:contents>
 </bpr:release>
